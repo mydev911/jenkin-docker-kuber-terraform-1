@@ -8,7 +8,9 @@ pipeline{
             steps{
 
                 script {
-                    git branch: 'main', url: 'https://github.com/mydev911/jenkin-docker-kuber-terraform-1.git'
+                    gitcheckout
+                       branch: "main"
+                       url: "https://github.com/mydev911/jenkin-docker-kuber-terraform-1.git"
                 }
             }
 
