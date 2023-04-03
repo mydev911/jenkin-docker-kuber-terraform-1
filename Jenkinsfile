@@ -8,7 +8,7 @@ pipeline{
         stage('Git Checkout'){
             
             steps{
-                gitcheckout
+                gitCheckout
                     branch: "main"
                     url: "https://github.com/mydev911/jenkin-docker-kuber-terraform-1.git"
                 
