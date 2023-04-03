@@ -1,19 +1,16 @@
-@Library('Jenkins-shared-library')
+@Library('Jenkins-shared-library') _
 
-pipeline{
+pipeline {
     agent any
-
+    
     stages {
-
-        stage('Git Checkout'){
-            
-            steps{
-                gitCheckout
-                    branch: "main"
-                    url: "https://github.com/mydev911/jenkin-docker-kuber-terraform-1.git"
-                
+        stage('Git Checkout') {
+            steps {
+                gitCheckout([
+                    url: 'https://github.com/mydev911/jenkin-docker-kuber-terraform-1.git',
+                    branch: 'main'
+                ])
             }
-
         }
     }
 }
