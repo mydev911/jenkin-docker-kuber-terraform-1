@@ -9,8 +9,9 @@ pipeline {
     
     stages {
 
-        when{ expression { param.action == 'create'}}
+        
         stage('Git Checkout') {
+            when{ expression { param.action == 'create'}}
             steps {
                 gitCheckout([
                     url: 'https://github.com/mydev911/jenkin-docker-kuber-terraform-1.git',
