@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     parameters{
-        choice(name: 'action', choices: 'create\ndelete', description: 'Choose create/Destroy') 
+        choice(name: 'action', choices : 'create\ndelete', description: 'Choose create/Destroy') 
     }
     
     stages {
@@ -28,14 +28,16 @@ pipeline {
                 }
             }
         }
-        stage('Integration Test Maven') {
+        stage('Stastic code analysis ') {
             when{ expression { param.action == 'create'}}
             steps {
                 script{
-                    mvnintegrationTest()
+                    staticCodeAnalysis()
 
                 }
             }
         }
+
+      
     }
 }
