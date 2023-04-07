@@ -11,7 +11,7 @@ pipeline {
 
         
         stage('Git Checkout') {
-            when{ expression { param.action == 'create'}}
+            when{ expression { params.action == 'create'}}
             steps {
                 gitCheckout([
                     url: 'https://github.com/mydev911/jenkin-docker-kuber-terraform-1.git',
@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Unit Test maven') {
 
-            when{ expression { param.action == 'create'}}
+            when{ expression { params.action == 'create'}}
             steps {
                 script{
                     mvnTest()
@@ -30,7 +30,7 @@ pipeline {
             }
         }
         stage('Stastic code analysis ') {
-            when{ expression { param.action == 'create'}}
+            when{ expression { params.action == 'create'}}
             steps {
                 script{
                     staticCodeAnalysis()
